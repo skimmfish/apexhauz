@@ -1,0 +1,36 @@
+{
+  "name": "project_two",
+  "version": "1.0.0",
+  "description": "users with tokens and v1 api",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/skimmfish"
+  },
+  "keywords": [
+    "api",
+    "v2"
+  ],
+  "author": "olabiyi emmanuel",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "joi": "^17.6.0",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16",
+    "winston": "^3.7.2"
+  }
+}
