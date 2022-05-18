@@ -28,13 +28,11 @@ error: err.message
 });
 }else{
 const token = generateToken(data.id);
-res.status(201).send({
+res.status(200).send({
 status: "success",
-data: {
-token,
-data
-}
+data:{token, data}
 });
+
 }
 });
 };
@@ -67,7 +65,10 @@ console.log("User successfully identified and authenticated!");
 //console.log("User details:", mydata);
 const token = generateToken(res.id);
 //sending status to the frontend
-res.status(200).send({status:"success", data:{token,first_name: res.first_name,last_name: res.last_name,phone: res.phone,is_admin: res.is_admin } });
+//setting the token in the authorization header
+data.jwt = token;
+res.setHeader('x-access-token',token);
+res.status(200).send(data);
 }
 }
 })

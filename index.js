@@ -4,17 +4,24 @@ const cors = require('cors');
 var http = require('http');
 const mysql = require('mysql');
 const morgan = require('morgan');
+require('dotenv').config();
+const bodyParser = require('body-parser');
 
 //creating an express framework app object
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.use(cors());
 
 //declaring heh port number as a constant
-const PORT = 4000;
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(morgan('dev'));
+
 
 //importing all the route files into the main container
 require("./src/routes/property.routes.js")(app);
