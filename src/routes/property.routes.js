@@ -34,7 +34,7 @@ router.get("/",authenticate, propertyController.findAll);
 router.get("/:id", authenticate,propertyController.findOne);
 
 // Retrieve a single Property with type
-router.get("/:type", authenticate, propertyController.findByType);
+router.get("/search?", authenticate, propertyController.findByType);
 
 // Create a new Property
 router.post("/", authenticate, propertyController.create);
@@ -50,7 +50,6 @@ router.delete("/:id", authenticate, propertyController.delete);
 
 
 app.use('/api/v1/property', (req,res,next)=>{
-res.header('Access-Control-Allow-Origin', 'http://localhost:'+process.env.PORT);
 res.header('Access-Control-Allow-Headers', 'Origin,X-Requested-With,Content-Type, Accept, Authorization');
  next();
 },router);
